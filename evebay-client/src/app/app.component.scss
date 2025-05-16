@@ -1,0 +1,219 @@
+// Dark theme variables
+$dark-primary: #424242;
+$dark-accent: #ff4081;
+$dark-warn: #f44336;
+$dark-background: #303030;
+$dark-surface: #424242;
+$dark-text: #ffffff;
+$dark-text-secondary: rgba(255, 255, 255, 0.7);
+
+// Custom styles for the app component
+.character-portrait {
+  transition: transform 0.2s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.scope-badge {
+  transition: background-color 0.2s ease-in-out;
+  
+  &:hover {
+    background-color: #dbeafe;
+  }
+}
+
+// Animation for the welcome message
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-message {
+  animation: fadeIn 0.5s ease-out;
+}
+
+// Custom scrollbar for the scopes container
+.scopes-container {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+    
+    &:hover {
+      background: #666;
+    }
+  }
+}
+
+// Sidenav container
+.sidenav-container {
+  height: 100vh;
+  background-color: $dark-background;
+}
+
+// Sidenav
+.sidenav {
+  width: 280px;
+  background-color: $dark-surface;
+  border-right: none;
+
+  .sidenav-header {
+    padding: 16px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .character-portrait {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      border: 4px solid $dark-accent;
+      margin-bottom: 16px;
+    }
+
+    .character-name {
+      color: $dark-text;
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+
+  mat-nav-list {
+    padding-top: 0;
+
+    a {
+      color: $dark-text-secondary;
+      
+      mat-icon {
+        margin-right: 16px;
+        color: $dark-text-secondary;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $dark-text;
+
+        mat-icon {
+          color: $dark-accent;
+        }
+      }
+    }
+  }
+}
+
+// Toolbar
+mat-toolbar {
+  background-color: $dark-primary;
+  color: $dark-text;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .toolbar-title {
+    margin-left: 16px;
+    font-size: 1.2rem;
+  }
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+// Content container
+.content-container {
+  padding: 24px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+// Error card
+.error-card {
+  background-color: rgba($dark-warn, 0.1);
+  margin-bottom: 24px;
+
+  .error-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $dark-warn;
+  }
+}
+
+// Loading container
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: $dark-text-secondary;
+  gap: 16px;
+}
+
+// Welcome container
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 24px;
+
+  .welcome-card {
+    max-width: 600px;
+    width: 100%;
+    background-color: $dark-surface;
+    color: $dark-text;
+
+    mat-card-content {
+      text-align: center;
+      padding: 32px;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+
+      p {
+        color: $dark-text-secondary;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}

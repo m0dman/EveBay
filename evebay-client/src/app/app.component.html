@@ -1,0 +1,116 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<mat-sidenav-container class="sidenav-container">
+  <!-- Side Navigation -->
+  <mat-sidenav #sidenav mode="side" [opened]="sidenavOpened" class="sidenav">
+    <div class="sidenav-header" *ngIf="isAuthenticated && characterInfo">
+      <img [src]="'https://images.evetech.net/characters/' + characterInfo.CharacterID + '/portrait?size=128'" 
+           [alt]="characterInfo.CharacterName"
+           class="character-portrait">
+      <h2 class="character-name">{{ characterInfo.CharacterName }}</h2>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/market">
+        <mat-icon>store</mat-icon>
+        <span>Market</span>
+      </a>
+      <a mat-list-item routerLink="/contracts">
+        <mat-icon>description</mat-icon>
+        <span>Contracts</span>
+      </a>
+      <a mat-list-item routerLink="/assets">
+        <mat-icon>inventory_2</mat-icon>
+        <span>Assets</span>
+      </a>
+      <a mat-list-item routerLink="/profile">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <!-- Top Toolbar -->
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-title">EveBay</span>
+      <span class="toolbar-spacer"></span>
+      <ng-container *ngIf="!isAuthenticated">
+        <button mat-raised-button color="accent" (click)="login()">
+          <mat-icon>login</mat-icon>
+          Login with EVE Online
+        </button>
+      </ng-container>
+      <ng-container *ngIf="isAuthenticated">
+        <button mat-icon-button [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </ng-container>
+    </mat-toolbar>
+
+    <!-- Main Content Area -->
+    <div class="content-container">
+      <!-- Error Message -->
+      <mat-card *ngIf="authError" class="error-card">
+        <mat-card-content>
+          <div class="error-content">
+            <mat-icon color="warn">error</mat-icon>
+            <span>{{ authError }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Loading State -->
+      <div *ngIf="isAuthenticated && !characterInfo && !authError" class="loading-container">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Loading character information...</p>
+      </div>
+
+      <!-- Welcome Message for Non-Authenticated Users -->
+      <div *ngIf="!isAuthenticated" class="welcome-container">
+        <mat-card class="welcome-card">
+          <mat-card-content>
+            <h1>Welcome to EveBay</h1>
+            <p>Please log in with your EVE Online account to access the marketplace.</p>
+            <button mat-raised-button color="accent" (click)="login()">
+              <mat-icon>login</mat-icon>
+              Login with EVE Online
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Router Outlet -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

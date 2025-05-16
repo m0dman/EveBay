@@ -1,0 +1,30 @@
+// Add any custom styles here
+// Most styles are handled by Tailwind classes, but you can add custom styles if needed
+
+.status-badge {
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.contract-grid {
+  @apply grid gap-6;
+  
+  @screen md {
+    @apply grid-cols-4;
+  }
+  
+  @screen sm {
+    @apply grid-cols-2;
+  }
+}
+
+.value-label {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.value-text {
+  @apply text-lg font-semibold;
+} 
