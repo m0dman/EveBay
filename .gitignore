@@ -1,0 +1,46 @@
+# .NET
+bin/
+obj/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+.vs/
+.vscode/
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Angular
+evebay-client/node_modules/
+evebay-client/dist/
+evebay-client/tmp/
+evebay-client/.angular/
+evebay-client/.sass-cache/
+evebay-client/connect.lock
+evebay-client/coverage/
+evebay-client/libpeerconnection.log
+evebay-client/npm-debug.log
+evebay-client/yarn-error.log
+evebay-client/testem.log
+evebay-client/typings/
+
+# Environment files
+evebay-client/src/environments/environment.ts
+evebay-client/src/environments/environment.prod.ts
+EveBay.API/appsettings.Development.json
+EveBay.API/appsettings.json
+
+# IDE
+.idea/
+*.sln.iml 
