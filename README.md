@@ -1,71 +1,52 @@
 # EveBay
 
-EveBay is a web application that displays currently open contracts for the Lux Mundi corporation in Eve Online. This allows corporation members to view contract details without being logged into the game.
-
-## Project Structure
-
-The solution consists of two main parts:
-- `EveBay.API`: A .NET 8 Web API backend
-- `evebay-client`: An Angular frontend application
-
-## Prerequisites
-
-- .NET 8 SDK
-- Node.js (LTS version)
-- Angular CLI
-- Eve Online ESI API access
-
-## Getting Started
-
-### Backend Setup
-
-1. Navigate to the API project:
-```bash
-cd EveBay.API
-```
-
-2. Restore dependencies:
-```bash
-dotnet restore
-```
-
-3. Run the API:
-```bash
-dotnet run
-```
-
-The API will be available at `https://localhost:7001` and `http://localhost:5001`
-
-### Frontend Setup
-
-1. Navigate to the Angular project:
-```bash
-cd evebay-client
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run the development server:
-```bash
-ng serve
-```
-
-The frontend will be available at `http://localhost:4200`
+EveBay is a web application designed to help EVE Online players manage and view their corporation contracts. It provides a user-friendly interface to display contract details, including item names, quantities, and financial information.
 
 ## Features
 
-- View all open contracts for Lux Mundi corporation
-- Filter and search contracts
-- View detailed contract information
-- Real-time updates
+- **Contract Management**: View and manage corporation contracts, including details like type, status, title, and financial information (price, reward, collateral, buyout).
+- **Item Details**: Display contract items with their names, quantities, and other attributes.
+- **Responsive UI**: Built with Angular and Material Design for a modern, responsive user experience.
 
-## Development
+## Project Structure
 
-This project uses:
-- .NET 8 for the backend API
-- Angular 17 for the frontend
-- SCSS for styling
-- TypeScript for type safety 
+- **Frontend (`evebay-client/`)**: Angular application providing the user interface.
+- **Backend (`EveBay.API/`)**: .NET Core API handling contract data and EVE Online integration.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm (for the frontend)
+- .NET Core SDK (for the backend)
+
+### Installation
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/m0dman/EveBay.git
+   cd EveBay
+   ```
+
+2. **Frontend Setup:**
+   ```sh
+   cd evebay-client
+   npm install
+   ng serve
+   ```
+
+3. **Backend Setup:**
+   ```sh
+   cd EveBay.API
+   dotnet restore
+   dotnet run
+   ```
+
+## Usage
+
+- Open your browser and navigate to `http://localhost:4200` to access the frontend.
+- The backend API will be available at `http://localhost:5000` (or the configured port).
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
